@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-// ARREGLO STRING[] REQUERIDO (Mínimo 5 habilidades)
-const habilidades: string[] = ["TypeScript", "React Native", "Expo SDK 54", "JavaScript", "Git & GitHub", "SQL Server"];
+
+const habilidades: string[] = ["TypeScript", "React Native", "Expo SDK 54", "JavaScript", "GitHub", "SQL "];
 
 export default function SkillsScreen() {
   return (
@@ -11,7 +11,7 @@ export default function SkillsScreen() {
       <Text style={styles.subtitulo}>Estructura string[] mapeada con estilos visuales (Badges):</Text>
       
       <View style={styles.contenedorBadges}>
-        {/* MAP REQUERIDO POR LA RÚBRICA */}
+        {}
         {habilidades.map((skill, index) => (
           <View key={index} style={styles.badge}>
             <Text style={styles.textoBadge}> {skill}</Text>

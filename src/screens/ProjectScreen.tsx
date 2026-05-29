@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
-// OBJETO ACTUALIZADO CON LOS DATOS DE TU PROYECTO REAL
+
 const proyecto = {
   nombre: "Sistema de Gestión de Activos Fijos y Auditorías con QR",
   version: "1.0.0",
@@ -15,13 +15,13 @@ export default function ProjectScreen() {
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.tituloHeader}>Mi Proyecto Integrador</Text>
       
-      {/* SECCIÓN 1: Mostrar el objeto completo con JSON.stringify() */}
+      {}
       <Text style={styles.subtitulo}>Objeto Completo (JSON.stringify):</Text>
       <View style={styles.contenedorJson}>
         <Text style={styles.textoJson}>{JSON.stringify(proyecto, null, 2)}</Text>
       </View>
 
-      {/* SECCIÓN 2: Mostrar campo por campo con <Text> */}
+      {}
       <Text style={styles.subtitulo}>Desglose Campo por Campo:</Text>
       <View style={styles.tarjeta}>
         <Text style={styles.campo}><Text style={styles.etiqueta}>Proyecto:</Text> {proyecto.nombre}</Text>

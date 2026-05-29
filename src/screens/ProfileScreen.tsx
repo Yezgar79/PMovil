@@ -1,21 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 
-// DATOS PERSONALES ESTRICTOS CON SUS TIPOS
+// DATOS PERSONALES con tipos de datos 
 const nombre = "Jesús González García";
 const carrera = "Ing. en Sistemas Computacionales";
 const cuatrimestre = 9;
 const promedio = 9.2;
 const titulado = false;
-const datoPendiente = null; // Tipo null requerido por la rúbrica
+const datoPendiente = null; 
 
 export default function ProfileScreen() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.seccionTitulo}>Imágenes Requeridas</Text>
+      <Text style={styles.seccionTitulo}>Imágenes</Text>
       
       <View style={styles.rowImagenes}>
-        {/* IMAGEN 1: Desde Internet (Aquí va el link de internet que pediste) */}
+        {}
         <View style={styles.boxImagen}>
           <Image 
             source={{ uri: 'https://tse1.mm.bing.net/th/id/OIP.62zDKqIrLfk8v-zDge9xuwHaE0?cb=thfvnextfalcon&rs=1&pid=ImgDetMain&o=7&rm=3' }} 
@@ -24,7 +24,7 @@ export default function ProfileScreen() {
           <Text style={styles.subImagen}>Desde Internet</Text>
         </View>
 
-        {/* IMAGEN 2: Desde Carpeta Local Assets */}
+        {}
         <View style={styles.boxImagen}>
           <Image 
             source={require('../../assets/avatar.jpg')} 
