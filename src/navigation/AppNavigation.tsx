@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Importación de las 3 pantallas 
-import ProfileScreen from '../screens/ProfileScreen';
+import ProfileScreen from '../screens/PerfilScreen';
 import SkillsScreen from '../screens/SkillsScreen';
 import ProjectScreen from '../screens/ProjectScreen';
 
