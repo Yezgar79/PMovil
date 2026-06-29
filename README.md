@@ -2,6 +2,55 @@
 
 ---
 
+## Navegación anidada (Bottom Tabs + Stack)
+
+### Diagrama de navegación
+
+```text
+Tab.Navigator (Bottom Tabs)
+├── Perfil            -> ProfileScreen
+├── Habilidades        -> SkillsScreen
+├── Proyecto           -> ProjectScreen
+├── Artesanias (Stack)
+│   ├── ListaProductos    -> HomeScreen
+│   │       └─ navigate('DetalleProducto', { productoId }) ─┐
+│   └── DetalleProducto   -> ProductoDetalleScreen <─────────┘
+│           (header: título dinámico = producto.nombre, back-button automático)
+└── ArtesanosTab (Stack)
+    ├── ListaArtesanos    -> ArtesanosScreen
+    │       └─ navigate('PerfilArtesano', { artesanoId }) ─┐
+    └── PerfilArtesano    -> PerfilArtesanoScreen <─────────┘
+            (header: título dinámico = artesano.nombre, back-button automático)
+```
+
+Cada pestaña de catálogo (`Artesanias` y `ArtesanosTab`) envuelve su propio
+`createNativeStackNavigator` con dos pantallas: lista y detalle. El paso de
+datos entre ellas se hace solo con el `id` (`productoId` / `artesanoId`) vía
+`route.params`, tipado con `HomeStackParamList` y `ArtesanosStackParamList`
+(`src/types/navigation.ts`). La pantalla de detalle resuelve el resto de la
+información con un hook (`useProductoDetalle`, `useArtesano`) y, una vez que
+los datos llegan, actualiza el título del header con
+`navigation.setOptions({ title: ... })`. El botón de regreso lo provee
+automáticamente `@react-navigation/native-stack` al no ser la primera
+pantalla del stack.
+
+### Reflexión: conflicto de versiones
+
+Al instalar la familia de React Navigation, el riesgo principal era mezclar
+una versión de `@react-navigation/native-stack` distinta a la de
+`@react-navigation/native` y `@react-navigation/bottom-tabs`: en versiones
+distintas (p. ej. v6 vs v7) cambia la forma en que cada paquete espera el
+`NavigationContainer` y los tipos de `ParamListBase`, y el proyecto deja de
+compilar o falla en tiempo de ejecución con errores de contexto de
+navegación. Se resolvió instalando los tres paquetes con `npx expo install`
+en la misma sesión, lo que hace que Expo fije versiones compatibles entre sí
+y con el SDK del curso (Expo SDK 54), dejando toda la familia en la rama
+`^7.x` (`@react-navigation/native@^7.2.5`,
+`@react-navigation/bottom-tabs@^7.16.2`,
+`@react-navigation/native-stack@^7.16.0`).
+
+---
+
 ## ¿Qué es React Native?
 
 **React Native** es un marco de trabajo (*framework*) de código abierto creado por Meta (anteriormente Facebook) en 2015. Permite el desarrollo de aplicaciones móviles multiplataforma (iOS y Android) utilizando **JavaScript** y **React**.
