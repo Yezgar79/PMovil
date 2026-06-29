@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Importación de las pantallas
-import ProfileScreen from '../screens/ProfileScreen';
+import ProfileScreen from '../screens/PerfilScreen';
 import SkillsScreen from '../screens/SkillsScreen';
 import ProjectScreen from '../screens/ProjectScreen';
 import HomeScreen from '../screens/HomeScreen';
